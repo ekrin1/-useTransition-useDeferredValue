@@ -8,9 +8,9 @@ export const App = memo(() => {
 
   const dummyProducts = useMemo(() => generateProducts(), []);
 
-  const defferedFilter = useDeferredValue(filterTerm);
+  const deferredFilter = useDeferredValue(filterTerm);
 
-  const filteredProducts = filterProducts(filterTerm, dummyProducts);
+  const filteredProducts = filterProducts(deferredFilter, dummyProducts);
 
   const updateFilterHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setFilterTerm(event.target.value);
